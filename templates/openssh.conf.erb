@@ -1,0 +1,28 @@
+# This file is managed by puppet.
+
+Port <%= scope.function_options_lookup(['Port','22']) %>
+Protocol 2
+SyslogFacility AUTHPRIV
+LogLevel <%= scope.function_options_lookup(['LogLevel','INFO']) %>
+PermitRootLogin <%= scope.function_options_lookup(['PermitRootLogin','yes']) %>
+PubkeyAuthentication <%= scope.function_options_lookup(['PubkeyAuthentication','yes']) %>
+PasswordAuthentication <%= scope.function_options_lookup(['PasswordAuthentication','yes']) %>
+PermitEmptyPasswords <%= scope.function_options_lookup(['PermitEmptyPasswords','no']) %>
+ChallengeResponseAuthentication <%= scope.function_options_lookup(['ChallengeResponseAuthentication','no']) %>
+UsePAM <%= scope.function_options_lookup(['UsePAM','no']) %>
+
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE POSTGRES_USER
+AcceptEnv XMODIFIERS
+
+AllowAgentForwarding <%= scope.function_options_lookup(['AllowAgentForwarding','yes']) %>
+AllowTcpForwarding <%= scope.function_options_lookup(['AllowTcpForwarding','no']) %>
+X11Forwarding <%= scope.function_options_lookup(['X11Forwarding','no']) %>
+
+PrintMotd <%= scope.function_options_lookup(['PrintMotd','yes']) %>
+PrintLastLog <%= scope.function_options_lookup(['PrintLastLog','yes']) %>
+UseDNS <%= scope.function_options_lookup(['UseDNS','yes']) %>
+PermitTunnel <%= scope.function_options_lookup(['PermitTunnel','no']) %>
+
+Subsystem sftp <%= scope.function_options_lookup(['SubsystemSFTP','internal-sftp']) %>
